@@ -8,7 +8,7 @@ public class Player2DControl : MonoBehaviour {
 	public enum ProjectAxis {onlyX = 0, xAndY = 1};
 	public ProjectAxis projectAxis = ProjectAxis.onlyX;
 	public float speed = 150;
-	public float addForce = 7;
+	public float addForce = 100;
 	public bool lookAtCursor;
 	public KeyCode leftButton = KeyCode.A;
 	public KeyCode rightButton = KeyCode.D;
