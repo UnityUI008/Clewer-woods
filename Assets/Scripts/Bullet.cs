@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     public float timeDestroy = 3f;
     public float speed = 3f;
     private Rigidbody2D rb;
-    int layerMaskOnlyPlayer = 1 << 8;
+    const int layerMaskOnlyPlayer = 1 << 8;
     int layerMaskWithoutPlayer = ~layerMaskOnlyPlayer;
 
     void Start()

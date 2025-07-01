@@ -26,7 +26,7 @@ public class Player2DControl : MonoBehaviour {
 	void Start () 
 	{
 		body = GetComponent<Rigidbody2D>();
-		body.fixedAngle = true;
+		// body.fixedAngle = true;
 
 		if(projectAxis == ProjectAxis.xAndY) 
 		{
