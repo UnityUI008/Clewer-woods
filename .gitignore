@@ -12,7 +12,6 @@ UserSettings/
 *.old
 *.csproj
 *.unityproj
-*.sln
 *.suo
 *.user
 *.userprefs

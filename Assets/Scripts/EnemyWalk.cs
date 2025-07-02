@@ -30,28 +30,6 @@ public class EnemyWalk : MonoBehaviour
         }
     }
     */
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        enter = true;
-        do
-        {
-            if (other.CompareTag("Player"))
-            {
-                character PlayerCharacter = other.GetComponent<character>();
-                if (PlayerCharacter != null)
-                {
-                    PlayerCharacter.DamageMe(GetComponent<character>().damage, gameObject.name);
-
-                }
-            }
-
-        } while (enter);
-    }
-
-    void OnTriggerExit2D()
-    {
-        enter = false;    
-    }
 
     void Update()
     {
