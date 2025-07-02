@@ -11,11 +11,11 @@ public class character : MonoBehaviour
     [SerializeField]
     private GameObject img;
 
-    void Dead() 
+    void Dead(string name) 
     {
         if (player)
         {
-            Debug.Log($"Player dead by: {null}");
+            Debug.Log($"Player dead by: {name}");
             img.gameObject.SetActive(true);
             Destroy(gameObject);
         }
@@ -24,13 +24,15 @@ public class character : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void DamageMe(int damage)
+    public void DamageMe(int damage, string name)
     {
         if (hp > 0 && hp > damage) { hp = hp - damage; }
-        else if (hp > 0 && hp < damage) { Dead(); }
+        else if (hp > 0 && hp < damage) { Dead(name); }
+        else if (hp <= 0 || hp < damage) { Dead(name); }
+        else { hp -= damage; }
     }
     void Update()
     {
-        if (hp <= 0) { Dead(); }
+        if (hp <= 0) { Dead("Update"); }
     }
 }
