@@ -7,6 +7,7 @@ public class EnemyWalk : MonoBehaviour
 {
     public Transform target;
     public LayerMask obstacleMask;
+    private bool enter = false;
 
     // private Rigidbody2D body;
     public float speed = 3f;
@@ -29,17 +30,27 @@ public class EnemyWalk : MonoBehaviour
         }
     }
     */
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        enter = true;
+        do
         {
-            character PlayerCharacter = other.GetComponent<character>();
-            if (PlayerCharacter != null)
+            if (other.CompareTag("Player"))
             {
-                PlayerCharacter.DamageMe(GetComponent<character>().damage, gameObject.name);
+                character PlayerCharacter = other.GetComponent<character>();
+                if (PlayerCharacter != null)
+                {
+                    PlayerCharacter.DamageMe(GetComponent<character>().damage, gameObject.name);
 
+                }
             }
-        }
+
+        } while (enter);
+    }
+
+    void OnTriggerExit2D()
+    {
+        enter = false;    
     }
 
     void Update()
